@@ -20,6 +20,6 @@ export class NavbarComponent implements OnInit {
 
   handleLogout() {
     this.authService.logout();
-    this.router.navigateByUrl('/login');
+    this.router.navigateByUrl('/');
   }
 }

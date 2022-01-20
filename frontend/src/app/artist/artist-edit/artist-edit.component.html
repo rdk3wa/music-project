@@ -1,0 +1,5 @@
+<div *ngIf="artist">
+  <h1>Modifier {{ artist.name }}</h1>
+
+  <app-artist-form [artist]="artist" (onSubmit)="handleSubmit($event)"></app-artist-form>
+</div>

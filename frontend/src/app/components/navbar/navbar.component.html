@@ -3,19 +3,19 @@
     <a class="navbar-brand" routerLink="/">SoundOfNoise</a>
     <div class="collapse navbar-collapse" id="navbarColor01">
       <ul class="navbar-nav me-auto">
-        <li class="nav-item">
+        <li class="nav-item" *ngIf="isConnected()">
           <a class="nav-link" routerLink="/music">Musiques</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item" *ngIf="isConnected()">
           <a class="nav-link" routerLink="/album">Albums</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item" *ngIf="isConnected()">
           <a class="nav-link" routerLink="/artist">Artistes</a>
         </li>
       </ul>
       <ul class="navbar-nav ml-auto">
         <li class="nav-item" *ngIf="!isConnected()">
-          <a class="btn btn-success" routerLink="/login">Connexion</a>
+          <a class="btn btn-success" routerLink="/">Connexion</a>
         </li>
         <li class="nav-item" *ngIf="isConnected()">
           <button class="btn btn-danger" (click)="handleLogout()">Déconnexion</button>

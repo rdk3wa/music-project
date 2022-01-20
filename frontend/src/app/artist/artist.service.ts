@@ -43,6 +43,15 @@ export class ArtistService implements ArtistApiInterface {
       );
   }
 
+  public update(artist: Artist): Observable<Artist> {
+    const artistApi = this.mapArtistToApiArtist(artist);
+
+    return this.http.put<ArtistApi>("http://localhost:3000/api/artists/" + artistApi.id, artistApi)
+      .pipe(
+        map((apiArtist) => this.mapApiArtistToArtist(apiArtist))
+      )
+  }
+
   public paginate(page: number): Observable<PaginatedArtists> {
     return this.http
       .get<ArtistsResponse>("http://localhost:3000/api/artists?page=" + page)

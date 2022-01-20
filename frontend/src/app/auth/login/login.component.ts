@@ -25,7 +25,7 @@ export class LoginComponent implements OnInit {
     this.service.authenticate(this.form.value)
       .subscribe({
         next: () => {
-           this.router.navigateByUrl('/music/create');
+           this.router.navigateByUrl('/music');
         },
         error: (error) => this.error = true,
       })

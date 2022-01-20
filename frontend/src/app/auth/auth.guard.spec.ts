@@ -41,6 +41,6 @@ describe('AuthGuard', () => {
       {} as RouterStateSnapshot
     );
 
-    expect(spyRouter).toHaveBeenCalledWith('/login');
+    expect(spyRouter).toHaveBeenCalledWith('/');
   });
 });

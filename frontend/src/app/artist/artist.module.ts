@@ -10,6 +10,7 @@ import {HttpClientModule} from "@angular/common/http";
 import {ArtistService} from "./artist.service";
 import { ArtistFormComponent } from './artist-form/artist-form.component';
 import { ArtistCreateComponent } from './artist-create/artist-create.component';
+import { ArtistEditComponent } from './artist-edit/artist-edit.component';
 
 
 
@@ -19,7 +20,8 @@ import { ArtistCreateComponent } from './artist-create/artist-create.component';
     ArtistViewComponent,
     ArtistSearchComponent,
     ArtistFormComponent,
-    ArtistCreateComponent
+    ArtistCreateComponent,
+    ArtistEditComponent
   ],
   imports: [
     CommonModule,
@@ -27,6 +29,7 @@ import { ArtistCreateComponent } from './artist-create/artist-create.component';
       { path: "", component: ArtistListComponent },
       { path: "create", component: ArtistCreateComponent },
       { path: ":id", component: ArtistViewComponent },
+      { path: ":id/edit", component: ArtistEditComponent },
       { path: "album/:id", component: ArtistListComponent }
     ]),
     ReactiveFormsModule,
