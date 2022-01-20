@@ -1,0 +1,13 @@
+<div *ngIf="artist$ | async as artist">
+  <h1 class="text-center">{{ artist.name }}</h1>
+  <h3 class="text-center"><i>{{ artist.description }}</i></h3>
+  <a class="btn btn-info" href="" [routerLink]="'/album/create'">Ajouter un album</a>
+  <div class="row">
+    <div class="col-md-3 col-sm-1 mt-2 text-center" *ngFor="let a of artist.albums">
+      <a class="text-decoration-none" [routerLink]="'/album/'+[a.id]">
+        <img class="rounded" style="width:100%; height:auto" src="{{ a.cover }}" alt="">
+        {{ a.title }}
+      </a>
+    </div>
+  </div>
+</div>

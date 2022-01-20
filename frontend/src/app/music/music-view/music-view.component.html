@@ -1,0 +1,16 @@
+<div *ngIf="music$ | async as music">
+  <div class="row justify-content-center">
+    <div class="col">
+      <h1 class="text-center">{{ music.title }}</h1>
+      <h2 class="text-center"><i>{{ music.album.artist.name }} - {{ music.year }}</i></h2>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <img class="rounded" style="width:100%; height:auto" src="{{ music.album.cover }}" alt="">
+      <div class="pt-1 m-auto">
+        <audio controls src="{{ music.file }}"></audio>
+      </div>
+    </div>
+  </div>
+</div>

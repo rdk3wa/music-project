@@ -1,0 +1,21 @@
+<app-album-search></app-album-search>
+
+<div class="alert alert-info" *ngIf="isLoading">
+  En cours de chargement ...
+</div>
+
+<div class="row">
+  <div class="col-md-3 col-sm-1 mt-2 text-center" *ngFor="let a of albums">
+    <a class="text-decoration-none" [routerLink]="[a.id]">
+      <img class="rounded" style="width:100%; height:auto" src="{{ a.cover }}" alt="">
+      {{ a.title }}
+    </a>
+  </div>
+</div>
+
+<app-pagination
+  [currentPage]="currentPage"
+  [itemsPerPage]="30"
+  [total]="albumCount"
+  (pageChanged)="setCurrentPage($event)"
+></app-pagination>

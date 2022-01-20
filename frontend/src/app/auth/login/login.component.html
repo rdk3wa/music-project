@@ -1,0 +1,27 @@
+<h1>Connexion</h1>
+
+<div class="alert alert-danger" *ngIf="error">Connexion impossible, merci de réessayer.</div>
+
+<form [formGroup]="form" (ngSubmit)="handleSubmit()">
+  <div class="form-group">
+    <input
+      formControlName="username"
+      type="email"
+      name="username"
+      placeholder="Adresse email"
+      class="form-control"
+    />
+  </div>
+  <div class="form-group">
+    <input
+      formControlName="password"
+      type="password"
+      name="password"
+      placeholder="Mot de passe"
+      class="form-control"
+    />
+  </div>
+  <div class="form-group">
+    <button class="btn btn-success">Connexion !</button>
+  </div>
+</form>

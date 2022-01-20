@@ -1,0 +1,35 @@
+<div *ngIf="album$ | async as album">
+  <div class="row justify-content-center">
+    <div class="col">
+      <h1 class="text-center">{{ album.title }}</h1>
+      <h2 class="text-center"><i>{{ album.artist.name }}</i></h2>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <img class="rounded " style="width:100%; height:auto" src="{{ album.cover }}" alt="">
+      <div class="pt-1">
+        <table class="w-100">
+          <thead class="table">
+          <tr>
+            <th class="col-md-1"><a class="btn btn-sm btn-info" href="" [routerLink]="'/music/create'">Ajouter</a></th>
+            <th class="col-md-6">Titre</th>
+            <th class="col-md-2">Année</th>
+            <th>Durée</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let m of album.musics">
+            <td>
+              <a [routerLink]="'/music/'+[m.id]" class="btn btn-sm btn-primary">></a>
+            </td>
+            <td>{{ m.title }}</td>
+            <td class="pl-3">{{ m.year }}</td>
+            <td class="pl-3">{{ m.duration }}</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

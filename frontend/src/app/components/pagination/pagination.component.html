@@ -1,0 +1,23 @@
+<div *ngIf="pagesCount > 0">
+  <ul class="pagination pt-5">
+    <li
+      class="page-item"
+      [ngClass]="{ disabled: currentPage === 1 }"
+    >
+      <button class="page-link" (click)="setCurrentPage(currentPage - 1)">&laquo;</button>
+    </li>
+    <li
+      class="page-item"
+      [ngClass]="{ active: p === currentPage }"
+      *ngFor="let p of pages"
+    >
+      <button class="page-link" (click)="setCurrentPage(p)">{{ p }}</button>
+    </li>
+    <li
+      class="page-item"
+      [ngClass]="{ disabled: currentPage === pagesCount }"
+    >
+      <button class="page-link" (click)="setCurrentPage(currentPage + 1)">&raquo;</button>
+    </li>
+  </ul>
+</div>

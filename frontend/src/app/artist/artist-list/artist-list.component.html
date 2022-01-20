@@ -1,0 +1,21 @@
+<app-artist-search></app-artist-search>
+
+<div class="alert alert-info" *ngIf="isLoading">
+  En cours de chargement ...
+</div>
+
+<div class="row">
+  <div class="col-md-2 col-sm-1 mt-2 text-center" *ngFor="let a of artists">
+    <a class="text-decoration-none" [routerLink]="[a.id]">
+      <img class="rounded" style="width:100%; height:auto" src="{{ a.photo }}" alt="">
+      {{ a.name }}
+    </a>
+  </div>
+</div>
+
+<app-pagination
+  [currentPage]="currentPage"
+  [itemsPerPage]="30"
+  [total]="artistCount"
+  (pageChanged)="setCurrentPage($event)"
+></app-pagination>

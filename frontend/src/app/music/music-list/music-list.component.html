@@ -1,0 +1,35 @@
+<app-music-search></app-music-search>
+
+<div class="alert alert-info" *ngIf="isLoading">
+  En cours de chargement ...
+</div>
+
+<table class="w-100">
+  <thead class="table">
+  <tr>
+    <th class="col-md-1"></th>
+    <th class="col-md-6">Titre</th>
+    <th class="col-md-3">Artist</th>
+    <th class="col-md-2">Année</th>
+    <th>Durée</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let m of musics">
+    <td>
+      <a [routerLink]="[m.id]" class="btn btn-sm btn-primary">></a>
+    </td>
+    <td>{{ m.title }}</td>
+    <td class="pl-1">{{ m.album.artist.name }}</td>
+    <td class="pl-3">{{ m.year }}</td>
+    <td class="pl-3">{{ m.duration }}</td>
+  </tr>
+  </tbody>
+</table>
+
+<app-pagination
+  [currentPage]="currentPage"
+  [itemsPerPage]="30"
+  [total]="musicCount"
+  (pageChanged)="setCurrentPage($event)"
+></app-pagination>
